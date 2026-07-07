@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1060" role="img" aria-label="Platzhalter: Salonfoto folgt">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2=".6" y2="1">
+      <stop offset="0" stop-color="#EFDFD3"/><stop offset="1" stop-color="#DCBDB0"/>
+    </linearGradient>
+    <radialGradient id="l" cx=".5" cy=".25" r=".7">
+      <stop offset="0" stop-color="#FDF8F1" stop-opacity=".85"/><stop offset="1" stop-color="#FDF8F1" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="b"><feGaussianBlur stdDeviation="22"/></filter>
+  </defs>
+  <rect width="800" height="1060" fill="url(#g)"/>
+  <rect width="800" height="1060" fill="url(#l)"/>
+  <g filter="url(#b)" opacity=".5">
+    <circle cx="590" cy="300" r="90" fill="#FBF3EA"/>
+    <circle cx="210" cy="760" r="120" fill="#E0BFAF"/>
+  </g>
+  <g opacity=".4" stroke="#A8875A" stroke-width="2" fill="none">
+    <path d="M250 1060 V520 a150 150 0 0 1 300 0 V1060"/>
+  </g>
+</svg>

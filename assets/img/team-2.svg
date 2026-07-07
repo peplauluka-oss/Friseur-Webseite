@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 780" role="img" aria-label="Platzhalter: Teamfoto folgt">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2=".4" y2="1">
+      <stop offset="0" stop-color="#F1E2D6"/><stop offset="1" stop-color="#D4B4A4"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="780" fill="url(#g)"/>
+  <g fill="#FDF8F1" opacity=".75">
+    <circle cx="300" cy="330" r="105"/>
+    <path d="M300 455 c-125 0 -195 85 -210 205 a8 8 0 0 0 8 9 h404 a8 8 0 0 0 8-9 c-15-120 -85-205 -210-205z"/>
+  </g>
+  <path d="M195 330 a105 105 0 0 1 210 0 c0-95 -35-150 -105-150 s-105 55 -105 150z" fill="#E4C6B6" opacity=".9"/>
+</svg>

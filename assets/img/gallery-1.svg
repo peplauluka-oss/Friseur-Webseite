@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 880" role="img" aria-label="Platzhalter: Arbeitsprobe folgt">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2=".7" y2="1">
+      <stop offset="0" stop-color="#F0DFD3"/><stop offset="1" stop-color="#D8B9AB"/>
+    </linearGradient>
+    <filter id="b"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="700" height="880" fill="url(#g)"/>
+  <g filter="url(#b)" opacity=".5">
+    <circle cx="500" cy="240" r="95" fill="#FBF3EA"/>
+    <circle cx="180" cy="650" r="110" fill="#E3C2B1"/>
+  </g>
+  <path d="M170 880 V420 a180 180 0 0 1 360 0 V880" fill="none" stroke="#A8875A" stroke-width="2" opacity=".35"/>
+</svg>

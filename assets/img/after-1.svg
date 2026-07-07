@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" role="img" aria-label="Platzhalter: NACHHER-Foto folgt">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2=".8" y2="1">
+      <stop offset="0" stop-color="#F4E7DA"/><stop offset="1" stop-color="#E2C5AE"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="640" fill="url(#g)"/>
+  <text x="450" y="332" text-anchor="middle" font-family="Georgia, serif" font-size="44" letter-spacing="6" fill="#8A6D42" opacity=".85">NACHHER</text>
+</svg>

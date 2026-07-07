@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" role="img" aria-label="Kartenvorschau: Dorfstraße 6, 13057 Berlin-Falkenberg">
+  <rect width="1000" height="640" fill="#F2EAE1"/>
+  <g stroke="#E0D3C5" stroke-width="10" fill="none" opacity=".9">
+    <path d="M-20 180 C 250 160, 420 240, 700 210 S 950 260, 1030 240"/>
+    <path d="M120 -20 C 140 200, 90 420, 130 660"/>
+    <path d="M-20 460 C 300 430, 600 500, 1030 450"/>
+    <path d="M690 -20 C 670 180, 720 400, 690 660"/>
+  </g>
+  <g stroke="#EAE0D4" stroke-width="5" fill="none">
+    <path d="M-20 320 C 300 300, 700 340, 1030 320"/>
+    <path d="M400 -20 C 390 200, 420 420, 400 660"/>
+  </g>
+  <g transform="translate(500,290)">
+    <path d="M0-64 a46 46 0 0 1 46 46 c0 34 -46 82 -46 82 s-46-48 -46-82 a46 46 0 0 1 46-46z" fill="#A8875A"/>
+    <circle cx="0" cy="-18" r="17" fill="#FBF7F2"/>
+  </g>
+  <text x="500" y="400" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#5B4A40">Dorfstraße 6 · 13057 Berlin-Falkenberg</text>
+</svg>
