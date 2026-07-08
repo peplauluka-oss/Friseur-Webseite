@@ -388,35 +388,79 @@ section { padding-block: var(--space-section); }
    ===================================================================== */
 .hero {
   position: relative;
-  min-height: clamp(34rem, 92svh, 52rem);
-  display: flex;
-  align-items: center;
-  padding-block: clamp(4rem, 9vh, 6rem);
+  padding-block: clamp(3.5rem, 8vh, 5.5rem);
   overflow: hidden;
+  background:
+    radial-gradient(58rem 40rem at 88% 8%, var(--blush-hell), transparent 62%),
+    radial-gradient(40rem 30rem at 8% 95%, rgba(237, 217, 210, 0.55), transparent 65%),
+    var(--porzellan);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+  min-height: clamp(30rem, 84svh, 46rem);
+}
+
+.hero-content { max-width: 42rem; }
+
+/* Hero-Visual: echte Arbeit in der Bogen-Maske + gezeichnete Gold-Linie */
+.hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 25rem;
+  justify-self: end;
+  /* Eigener Stacking-Context, damit die Gold-Linie (z-index: -1) hinter dem
+     Bild, aber vor dem Sektions-Hintergrund liegt */
   isolation: isolate;
 }
-.hero-media {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
+.hero-arch {
+  aspect-ratio: 4 / 5.4;
+  box-shadow: 0 32px 64px -32px rgba(64, 49, 43, 0.4);
 }
-.hero-media img {
+.hero-arch img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-/* Weicher Ivory-Verlauf über dem Bild — Lesbarkeit links */
-.hero::before {
-  content: '';
+/* Ambient-Moment: sehr langsamer Ken-Burns-Zoom als ruhiger Video-Ersatz */
+@keyframes hero-kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.07) translateY(-1.5%); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-arch img { animation: hero-kenburns 26s ease-in-out infinite alternate; }
+}
+/* Die Bogen-Linie zeichnet sich beim Laden einmal selbst */
+.hero-arch-line {
   position: absolute;
-  inset: 0;
+  top: -8%;
+  left: -19%;
+  width: 96%;
+  height: auto;
   z-index: -1;
-  background:
-    linear-gradient(105deg, rgba(251, 247, 242, 0.96) 0%, rgba(251, 247, 242, 0.82) 38%, rgba(251, 247, 242, 0.25) 72%, rgba(251, 247, 242, 0.05) 100%),
-    linear-gradient(to top, rgba(251, 247, 242, 0.85) 0%, rgba(251, 247, 242, 0) 30%);
+}
+.hero-arch-line path {
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  opacity: 0.65;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: arch-draw 1400ms var(--ease-out) 500ms forwards;
+}
+@keyframes arch-draw {
+  to { stroke-dashoffset: 0; }
 }
 
-.hero-content { max-width: 42rem; }
+@media (max-width: 56rem) {
+  .hero-grid { grid-template-columns: 1fr; min-height: 0; }
+  .hero-visual {
+    justify-self: center;
+    max-width: 18rem;
+    margin-top: 1rem;
+  }
+}
 
 .hero h1 { margin-bottom: 0.4em; }
 .hero h1 .script {
@@ -456,10 +500,6 @@ section { padding-block: var(--space-section); }
 }
 
 /* Hero-Load-Sequenz: JS entfernt .is-loading vom body */
-.hero-media img {
-  transition: transform 600ms var(--ease-out), opacity 600ms var(--ease-out);
-}
-.is-loading .hero-media img { opacity: 0; transform: scale(1.03); }
 .hero-seq {
   transition: transform 400ms var(--ease-out), opacity 400ms var(--ease-out);
   transition-delay: calc(180ms + var(--seq, 0) * 80ms);
@@ -765,11 +805,14 @@ section { padding-block: var(--space-section); }
 .ba-label--before { left: 0.9rem; }
 .ba-label--after { right: 0.9rem; }
 
+/* 5 Arbeiten als 2+3-Komposition: zwei große über drei kleineren Bögen */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: clamp(1rem, 2vw, 1.75rem);
 }
+.gallery-grid .arch:nth-child(-n+2) { grid-column: span 3; }
+.gallery-grid .arch:nth-child(n+3) { grid-column: span 2; }
 .gallery-grid .arch { aspect-ratio: 7 / 8.8; }
 .gallery-grid .arch img { transition: transform var(--dur-base) var(--ease-out); }
 @media (hover: hover) and (pointer: fine) {
@@ -1167,7 +1210,10 @@ section { padding-block: var(--space-section); }
     transition-duration: 0.01ms !important;
   }
   .reveal { transform: none; transition: opacity 200ms ease-out !important; }
-  .is-loading .hero-seq, .is-loading .hero-media img { transform: none; }
-  .hero-seq, .hero-media img { transition: opacity 200ms ease-out !important; }
+  .is-loading .hero-seq { transform: none; }
+  .hero-seq { transition: opacity 200ms ease-out !important; }
+  .hero-arch img { animation: none !important; }
+  /* Bogen-Linie ohne Animation sofort voll sichtbar */
+  .hero-arch-line path { stroke-dashoffset: 0; }
   .mobile-cta { transition: none; }
 }

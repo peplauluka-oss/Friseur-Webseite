@@ -115,23 +115,20 @@
 
     <!-- ================= HERO ================= -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-media" aria-hidden="true">
-        <!-- TODO: KLÄREN MIT KUNDIN — professionelles, warmes Salonfoto (Querformat, weiches
-             Tageslicht, Blick in den Salon) als WebP ersetzen. Platzhalter aktuell SVG. -->
-        <img src="assets/img/hero-placeholder.svg" alt="" width="1600" height="1000" fetchpriority="high">
-      </div>
-      <div class="wrap">
+      <div class="wrap hero-grid">
         <div class="hero-content">
+          <!-- Bewusstes dreizeiliges Poster-Lockup: Serif / Script / Serif -->
           <h1 id="hero-title">
-            <span class="hero-seq" style="--seq: 0; display: block">Dein <span class="script">kleiner Urlaub</span></span>
-            <span class="hero-seq" style="--seq: 1; display: block">beim Friseur.</span>
+            <span class="hero-seq" style="--seq: 0; display: block">Dein</span>
+            <span class="hero-seq script" style="--seq: 1; display: block">kleiner Urlaub</span>
+            <span class="hero-seq" style="--seq: 2; display: block">beim Friseur.</span>
           </h1>
-          <p class="hero-sub hero-seq" style="--seq: 2">
+          <p class="hero-sub hero-seq" style="--seq: 3">
             Frisuren zum Wohlfühlen, mitten in Berlin-Falkenberg. Bei uns nimmst
             du Platz, atmest durch und gehst mit einem Lächeln nach Hause.
             Mit und ohne Termin.
           </p>
-          <div class="hero-ctas hero-seq" style="--seq: 3">
+          <div class="hero-ctas hero-seq" style="--seq: 4">
             <!-- Scrollt aktuell zur Kontakt-Sektion; später Buchungs-Widget (siehe Kontakt-Sektion) -->
             <a class="btn btn--primary" href="#kontakt">Termin vereinbaren</a>
             <a class="btn btn--ghost tel-tooltip" href="tel:+49309328893" data-tel="(030) 932 88 93">
@@ -140,7 +137,7 @@
             </a>
           </div>
           <!-- Echte Google-Rezension als Trust-Element — keine erfundenen Bewertungszahlen -->
-          <div class="hero-trust hero-seq" style="--seq: 4">
+          <div class="hero-trust hero-seq" style="--seq: 5">
             <span class="stars" role="img" aria-label="5 von 5 Sternen">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.71-4.95 4.52 1.36 6.51L12 16.77 6.09 20l1.36-6.51L2.5 8.97l6.6-.71z"/></svg>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.71-4.95 4.52 1.36 6.51L12 16.77 6.09 20l1.36-6.51L2.5 8.97l6.6-.71z"/></svg>
@@ -153,6 +150,26 @@
               mit meiner Frisur nach Hause gegangen."
               <cite>Ina H. · Google Local Guide</cite>
             </blockquote>
+          </div>
+        </div>
+
+        <!-- Hero-Visual: echte Arbeitsprobe in der Bogen-Maske, ruhiger
+             Ken-Burns-Zoom als Ambient-Moment. Die Gold-Linie zeichnet sich
+             beim Laden einmal selbst (Signature-Element).
+             SPÄTER IDEAL: kurzes, ruhiges Salon-Video (10 bis 20 s, ohne Ton,
+             z. B. Schnitt/Föhnen von hinten gefilmt). Einbau an dieser Stelle:
+             <video autoplay muted loop playsinline poster="assets/img/gallery-1.jpg"
+                    width="468" height="624">
+               <source src="assets/video/salon-hero.mp4" type="video/mp4">
+             </video>
+             statt des <img>-Tags in .hero-arch.
+             TODO: KLÄREN MIT KUNDIN — kurzes Handy-Video im Salon drehen? -->
+        <div class="hero-visual hero-seq" style="--seq: 2" aria-hidden="true">
+          <svg class="hero-arch-line" viewBox="0 0 400 560" fill="none" aria-hidden="true">
+            <path pathLength="1" d="M30 560 V230 a170 170 0 0 1 340 0 V560"/>
+          </svg>
+          <div class="arch hero-arch">
+            <img src="assets/img/gallery-1.jpg" alt="" width="468" height="624" fetchpriority="high">
           </div>
         </div>
       </div>
@@ -437,8 +454,9 @@
         </div>
 
         <!-- Echte Arbeitsproben aus dem Salon (von der Kundin bereitgestellt) -->
+        <!-- 5 Bilder als 2+3-Komposition; die sechste Arbeit (lange Balayage)
+             trägt den Hero -->
         <div class="gallery-grid reveal">
-          <div class="arch"><img src="assets/img/gallery-1.jpg" alt="Arbeitsprobe: lange blonde Balayage mit weichen Wellen" width="468" height="624" loading="lazy"></div>
           <div class="arch"><img src="assets/img/gallery-2.jpg" alt="Arbeitsprobe: kinnlanger Bob mit Karamell-Strähnen" width="224" height="298" loading="lazy"></div>
           <div class="arch"><img src="assets/img/gallery-3.jpg" alt="Arbeitsprobe: schulterlanges aschblondes Haar mit Strähnen und weichen Wellen" width="480" height="624" loading="lazy"></div>
           <div class="arch"><img src="assets/img/gallery-4.jpg" alt="Arbeitsprobe: lange braune Locken" width="178" height="223" loading="lazy"></div>
