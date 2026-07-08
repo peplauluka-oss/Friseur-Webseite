@@ -35,10 +35,12 @@ Alle Stellen sind im Code mit `TODO: KLÄREN MIT KUNDIN` markiert:
 
 1. **Preisliste** — alle Preise in der Leistungs-Sektion (und FAQ) sind
    realistische Platzhalter und müssen ersetzt werden.
-2. **Fotos** — Hero, 2–3 Salonfotos, 4 Teamporträts, 4–8 Galeriebilder,
-   2–3 Vorher/Nachher-Paare (Einverständnis der Kundinnen!). Als WebP
-   exportieren und die SVG-Platzhalter in `assets/img/` ersetzen.
-3. **Team-Rollen** — genaue Rollen/Qualifikationen (Meisterin? Schwerpunkte?).
+2. **Fotos** — Teamporträts und 6 Galeriebilder sind eingebaut (von der
+   Kundin bereitgestellt). Noch offen: Hero-Foto, 2–3 Salonfotos und
+   2–3 Vorher/Nachher-Paare (Einverständnis der Kundinnen!). Für bessere
+   Qualität später hochauflösende Fotos nachliefern und als WebP exportieren.
+3. **Team-Rollen** — genaue Rollen/Qualifikationen (Meisterin? Schwerpunkte?)
+   und die Zuordnung der vier Porträtfotos zu den Namen bestätigen.
 4. **Gründungsjahr** — „Frauengeführt seit [Jahr]" in der Salon-Sektion.
 5. **Original-Salontext** — Text über die Salongestaltung von der alten Seite
    übernehmen (Seite war nicht abrufbar); aktueller Text ist ein Vorschlag.
