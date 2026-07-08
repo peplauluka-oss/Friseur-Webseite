@@ -190,16 +190,21 @@
      IntersectionObserver statt window-scroll-Listener. */
   var mobileCta = document.getElementById('mobile-cta');
   var ctaClose = document.getElementById('cta-close');
-  var ctaTrigger = document.getElementById('galerie');
-  if (mobileCta && ctaClose && ctaTrigger && 'IntersectionObserver' in window) {
+  if (mobileCta && ctaClose && 'IntersectionObserver' in window) {
     mobileCta.hidden = false; // per JS aktiviert — ohne JS bleibt die Leiste weg
     var ctaObserver = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) {
+      var hit = entries.some(function (entry) { return entry.isIntersecting; });
+      if (hit) {
         mobileCta.classList.add('is-shown');
         ctaObserver.disconnect();
       }
-    }, { threshold: 0.2 });
-    ctaObserver.observe(ctaTrigger);
+    }, { threshold: 0.15 });
+    // Galerie UND Kontakt beobachten: deckt auch Anker-Sprünge ab,
+    // die die Galerie überspringen (z. B. Nav-Klick auf „Kontakt")
+    ['galerie', 'kontakt'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) ctaObserver.observe(el);
+    });
     ctaClose.addEventListener('click', function () {
       ctaObserver.disconnect();
       mobileCta.classList.remove('is-shown');

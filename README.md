@@ -43,8 +43,12 @@ Alle Stellen sind im Code mit `TODO: KLÄREN MIT KUNDIN` markiert:
    und die Zuordnung der vier Porträtfotos zu den Namen bestätigen.
 4. **Original-Salontext** — Text über die Salongestaltung von der alten Seite
    übernehmen (Seite war nicht abrufbar); aktueller Text ist ein Vorschlag.
-5. **WhatsApp-Nummer** — ist die Festnetznummer bei WhatsApp (Business)
-   registriert? Falls nein: Mobilnummer in allen `wa.me`-Links ersetzen.
+5. **WhatsApp** — Buttons sind aktuell DEAKTIVIERT (auskommentiert), weil die
+   Festnetznummer nicht bei WhatsApp registriert ist und der Link eine
+   Fehlermeldung zeigte. Zum Aktivieren: Nummer bei WhatsApp Business
+   registrieren oder WhatsApp-fähige Mobilnummer nennen, dann die drei
+   auskommentierten Blöcke in `index.html` (Header, Kontakt-Sektion,
+   Sticky-Mobile-CTA) wieder einkommentieren und die Nummer ersetzen.
 6. **Google-Maps-Profil-URL** — exakten Profil-Link einsetzen (Stimmen-Sektion,
    Anfahrt, JSON-LD `sameAs`); Geo-Koordinaten im JSON-LD prüfen.
 7. **ÖPNV** — Haltestelle und Linien für die Anfahrts-Sektion.

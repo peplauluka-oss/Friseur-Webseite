@@ -351,7 +351,7 @@ section { padding-block: var(--space-section); }
 
 @media (max-width: 56rem) {
   .nav-toggle { display: flex; }
-  .header-ctas .btn--wa, .header-ctas .btn-label { display: none; }
+  .header-ctas .btn--wa, .header-ctas .btn--hide-mobile, .header-ctas .btn-label { display: none; }
   .header-ctas .btn { padding: 0.6rem 0.85rem; }
   .main-nav {
     position: absolute;
