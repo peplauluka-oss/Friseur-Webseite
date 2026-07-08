@@ -17,13 +17,19 @@
     document.body.classList.remove('is-loading');
   }, 1200);
 
-  /* ---------- Sticky-Header: schrumpft nach dem ersten Scroll */
+  /* ---------- Sticky-Header: schrumpft nach dem ersten Scroll.
+     Kein window-scroll-Listener (jank-anfällig) — ein unsichtbarer
+     Sentinel am Seitenanfang steuert den Zustand per IntersectionObserver. */
   var header = document.querySelector('.site-header');
-  var onScrollHeader = function () {
-    header.classList.toggle('is-scrolled', window.scrollY > 24);
-  };
-  window.addEventListener('scroll', onScrollHeader, { passive: true });
-  onScrollHeader();
+  if (header && 'IntersectionObserver' in window) {
+    var sentinel = document.createElement('div');
+    sentinel.setAttribute('aria-hidden', 'true');
+    sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:32px;pointer-events:none;';
+    document.body.prepend(sentinel);
+    new IntersectionObserver(function (entries) {
+      header.classList.toggle('is-scrolled', !entries[0].isIntersecting);
+    }).observe(sentinel);
+  }
 
   /* ---------- Mobile Navigation */
   var navToggle = document.querySelector('.nav-toggle');
@@ -179,22 +185,25 @@
     });
   }
 
-  /* ---------- Sticky Mobile CTA: erscheint nach 60 % Scroll-Tiefe, ausblendbar */
+  /* ---------- Sticky Mobile CTA: erscheint, sobald die Galerie erreicht ist
+     (~60 % Seitentiefe), bleibt dann sichtbar, ausblendbar per X.
+     IntersectionObserver statt window-scroll-Listener. */
   var mobileCta = document.getElementById('mobile-cta');
   var ctaClose = document.getElementById('cta-close');
-  if (mobileCta && ctaClose) {
-    var dismissed = false;
+  var ctaTrigger = document.getElementById('galerie');
+  if (mobileCta && ctaClose && ctaTrigger && 'IntersectionObserver' in window) {
     mobileCta.hidden = false; // per JS aktiviert — ohne JS bleibt die Leiste weg
-    var onScrollCta = function () {
-      if (dismissed) return;
-      var doc = document.documentElement;
-      var depth = window.scrollY / (doc.scrollHeight - window.innerHeight);
-      mobileCta.classList.toggle('is-shown', depth > 0.6);
-    };
-    window.addEventListener('scroll', onScrollCta, { passive: true });
+    var ctaObserver = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        mobileCta.classList.add('is-shown');
+        ctaObserver.disconnect();
+      }
+    }, { threshold: 0.2 });
+    ctaObserver.observe(ctaTrigger);
     ctaClose.addEventListener('click', function () {
-      dismissed = true;
+      ctaObserver.disconnect();
       mobileCta.classList.remove('is-shown');
+      mobileCta.hidden = true;
     });
   }
 
@@ -239,14 +248,14 @@
         'Rückruf-Anfrage über die Website\n\n' +
         'Name: ' + nameField.value.trim() + '\n' +
         'Telefon: ' + telField.value.trim() + '\n' +
-        'Wunsch: ' + (wishField.value.trim() || '—') + '\n';
+        'Wunsch: ' + (wishField.value.trim() || 'keine Angabe') + '\n';
       window.location.href =
         'mailto:h.wiesenthal@web.de' +
         '?subject=' + encodeURIComponent('Rückruf-Anfrage von ' + nameField.value.trim()) +
         '&body=' + encodeURIComponent(body);
 
       status.textContent =
-        'Dein E-Mail-Programm öffnet sich mit der fertigen Anfrage — einfach absenden. ' +
+        'Dein E-Mail-Programm öffnet sich mit der fertigen Anfrage, einfach absenden. ' +
         'Oder ruf uns direkt an: (030) 932 88 93.';
       status.dataset.state = 'ok';
 
