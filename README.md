@@ -41,19 +41,18 @@ Alle Stellen sind im Code mit `TODO: KLÄREN MIT KUNDIN` markiert:
    Qualität später hochauflösende Fotos nachliefern und als WebP exportieren.
 3. **Team-Rollen** — genaue Rollen/Qualifikationen (Meisterin? Schwerpunkte?)
    und die Zuordnung der vier Porträtfotos zu den Namen bestätigen.
-4. **Gründungsjahr** — „Frauengeführt seit [Jahr]" in der Salon-Sektion.
-5. **Original-Salontext** — Text über die Salongestaltung von der alten Seite
+4. **Original-Salontext** — Text über die Salongestaltung von der alten Seite
    übernehmen (Seite war nicht abrufbar); aktueller Text ist ein Vorschlag.
-6. **WhatsApp-Nummer** — ist die Festnetznummer bei WhatsApp (Business)
+5. **WhatsApp-Nummer** — ist die Festnetznummer bei WhatsApp (Business)
    registriert? Falls nein: Mobilnummer in allen `wa.me`-Links ersetzen.
-7. **Google-Maps-Profil-URL** — exakten Profil-Link einsetzen (Stimmen-Sektion,
+6. **Google-Maps-Profil-URL** — exakten Profil-Link einsetzen (Stimmen-Sektion,
    Anfahrt, JSON-LD `sameAs`); Geo-Koordinaten im JSON-LD prüfen.
-8. **ÖPNV** — Haltestelle und Linien für die Anfahrts-Sektion.
-9. **Impressum** — Inhaberin/Rechtsform, USt-IdNr., Kammer-Eintragung
+7. **ÖPNV** — Haltestelle und Linien für die Anfahrts-Sektion.
+8. **Impressum** — Inhaberin/Rechtsform, USt-IdNr., Kammer-Eintragung
    bestätigen; alte Inhalte waren nicht abrufbar. Rechtlich prüfen lassen.
-10. **Datenschutzerklärung** — Hosting-Anbieter ergänzen, Stand-Datum setzen,
+9. **Datenschutzerklärung** — Hosting-Anbieter ergänzen, Stand-Datum setzen,
     rechtlich prüfen lassen.
-11. **Online-Buchung** — falls gewünscht: Planity/Treatwell/Calendly-Widget;
+10. **Online-Buchung** — falls gewünscht: Planity/Treatwell/Calendly-Widget;
     Einbau-Stelle ist in `index.html` (Kontakt-Sektion) vorbereitet und
     kommentiert.
-12. **Stellen-Badge** — sucht der Salon Verstärkung? (Footer, vorbereitet)
+11. **Stellen-Badge** — sucht der Salon Verstärkung? (Footer, vorbereitet)
